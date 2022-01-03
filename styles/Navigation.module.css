@@ -1,0 +1,39 @@
+.navlist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.navlink {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.navlink + .navlink {
+  margin-left: 1.5em;
+}
+
+.navlink::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--clr-accent);
+}
+
+.navlink:hover::after {
+  display: block;
+  animation: link-hover 150ms ease-in-out 1 forwards;
+}
+
+@keyframes link-hover {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(2px);
+  }
+}
