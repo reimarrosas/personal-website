@@ -1,5 +1,5 @@
 import Navigation from "./Navigation";
-import styles from "../../styles/Header.module.css";
+import styles from "../../styles/Header/Header.module.css";
 
 const Header: React.FC = () => {
   return (
