@@ -3,6 +3,7 @@
   min-height: 300px;
   margin-block: 3rem;
   padding-inline: 1rem;
+  padding-bottom: 0.05px;
   margin-inline: auto;
 
   display: flex;

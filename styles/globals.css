@@ -2,14 +2,25 @@
   --clr-text: #f7fafc;
   --clr-bg: #171923;
   --clr-accent: #fc8181;
+  --clr-complement: #322659;
+  --clr-complement-variant: #44337a;
   --clr-subtext: #4a5568;
+
   font-size: clamp(0.6rem, 1vw, 1rem);
+  scroll-behavior: smooth;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
 }
 
 body {
