@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <>
       <div id="home"></div>
-      <Header />
+      <Header isIndex renderNav />
       <Hero />
       <Contact />
     </>
