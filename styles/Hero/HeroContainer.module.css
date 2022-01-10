@@ -1,6 +1,6 @@
 .mainContainer {
-  max-width: 768px;
-  min-height: 300px;
+  max-width: var(--sz-md);
+  min-height: 18.75rem;
   margin-block: 3rem;
   padding-inline: 1rem;
   padding-bottom: 0.05px;
@@ -21,8 +21,8 @@
 }
 
 .circle {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
 }
 

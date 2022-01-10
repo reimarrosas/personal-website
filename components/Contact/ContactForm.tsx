@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
           name="message"
           id="message"
           cols={30}
-          rows={10}
+          rows={5}
           className={styles.textarea}
           value={message}
           onChange={(evt: FormEvent<HTMLTextAreaElement>) =>

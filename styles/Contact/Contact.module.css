@@ -1,6 +1,6 @@
 .contact {
   position: relative;
-  max-width: 576px;
+  max-width: var(--sz-sm);
   margin-inline: auto;
   margin-block: 0 4rem;
   padding: 2rem 2.5rem;

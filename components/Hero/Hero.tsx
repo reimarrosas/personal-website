@@ -12,6 +12,7 @@ const Hero: React.FC = () => {
             living in Montreal, Quebec. Proficient in Frontend Technologies like
             HTML, CSS, JavaScript + Frameworks, with working knowledge of
             Backend Technologies like NodeJS, ASP.NET, Django, and Spring.
+            Technology is my lifeblood.
           </p>
         </section>
       </HeroContainer>
