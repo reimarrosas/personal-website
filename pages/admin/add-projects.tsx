@@ -1,16 +1,33 @@
 import { NextPage } from "next";
-import { FormEvent, KeyboardEvent, useState } from "react";
+import { useRouter } from "next/router";
+import {
+  FormEvent,
+  KeyboardEvent,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import ToolsTag from "../../components/Admin/ToolsTag";
 import Header from "../../components/Header/Header";
+import { LoginContext } from "../../context/LoginProvider";
 import styles from "../../styles/Admin/AddProjects.module.css";
 
 const AddProject: NextPage = () => {
+  const { state: isLoggedIn } = useContext(LoginContext);
+  const router = useRouter();
+
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [tools, setTools] = useState<string[]>([]);
   const [link, setLink] = useState("");
   const [image, setImage] = useState("");
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push("/admin/login");
+    }
+  }, []);
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();

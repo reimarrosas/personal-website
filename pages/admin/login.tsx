@@ -1,26 +1,71 @@
 import { NextPage } from "next";
-import { FormEvent, useState } from "react";
+import { useRouter } from "next/router";
+import {
+  FormEvent,
+  SyntheticEvent,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import Header from "../../components/Header/Header";
+import { LoginContext } from "../../context/LoginProvider";
 import styles from "../../styles/Admin/Login.module.css";
 
 const Login: NextPage = () => {
-  const [email, setEmail] = useState("");
+  const { state: isLoggedIn, setState: setIsLoggedIn } =
+    useContext(LoginContext);
+  const router = useRouter();
+
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(true);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/admin/add-projects");
+    }
+  }, [isLoggedIn]);
+
+  const handleSubmit = async (evt: SyntheticEvent) => {
+    evt.preventDefault();
+
+    console.log({ username, password });
+
+    const res = await fetch("/api/login", {
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+    if (res.ok) {
+      setIsValid(true);
+      setIsLoggedIn(true);
+    } else {
+      setIsValid(false);
+    }
+  };
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <h1 className={styles.title}>Login</h1>
+          {!isValid && (
+            <div className={styles.valid}>
+              <span>Username or Password Invalid!</span>
+            </div>
+          )}
           <div className={styles.formGroup}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">Username</label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
+              type="text"
+              name="username"
+              id="username"
+              value={username}
               onChange={(evt: FormEvent<HTMLInputElement>) =>
                 setEmail(evt.currentTarget.value)
               }
