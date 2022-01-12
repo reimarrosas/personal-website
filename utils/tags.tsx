@@ -18,6 +18,7 @@ import {
   SiRust,
   SiSpring,
   SiSpringboot,
+  SiSupabase,
   SiTypescript,
 } from "react-icons/si";
 
@@ -34,6 +35,7 @@ export const tagMap = new Map<string, JSX.Element>([
   ["electron", <SiElectron />],
   ["angular", <SiAngular />],
   ["docker", <SiDocker />],
+  ["supabase", <SiSupabase />],
   ["postgresql", <SiPostgresql />],
   ["javascript", <SiJavascript />],
   ["typescript", <SiTypescript />],

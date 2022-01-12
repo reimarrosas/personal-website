@@ -12,16 +12,20 @@ import ToolsTag from "../../components/Admin/ToolsTag";
 import Header from "../../components/Header/Header";
 import { LoginContext } from "../../context/LoginProvider";
 import styles from "../../styles/Admin/AddProjects.module.css";
+import { supabase } from "../../utils/supabase";
 
 const AddProject: NextPage = () => {
   const { state: isLoggedIn } = useContext(LoginContext);
   const router = useRouter();
 
+  const [isSuccess, setIsSuccess] = useState<boolean | undefined>(undefined);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [tools, setTools] = useState<string[]>([]);
-  const [link, setLink] = useState("");
+  const [githubLink, setGithubLink] = useState("");
+  const [siteLink, setSiteLink] = useState("");
   const [image, setImage] = useState("");
+  const [isHighlighted, setIsHighlighted] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -29,8 +33,28 @@ const AddProject: NextPage = () => {
     }
   }, []);
 
-  const handleSubmit = (evt: FormEvent) => {
+  const handleSubmit = async (evt: FormEvent) => {
     evt.preventDefault();
+    const res = await supabase.from("projects").upsert(
+      [
+        {
+          project_title: title,
+          project_desc: desc,
+          github_link: githubLink,
+          site_link: siteLink,
+          project_tools: tools,
+          project_image: image,
+          is_highlighted: isHighlighted,
+        },
+      ],
+      { onConflict: "project_title" }
+    );
+
+    if (!res.error) {
+      setIsSuccess(true);
+    } else {
+      setIsSuccess(false);
+    }
   };
 
   const handleKeyDown = (evt: KeyboardEvent) => {
@@ -48,7 +72,16 @@ const AddProject: NextPage = () => {
           onKeyDown={handleKeyDown}
           onSubmit={handleSubmit}
         >
-          <h1 className={styles.title}>Include Project</h1>
+          <h1 className={styles.title}>Add Project</h1>
+          {isSuccess !== undefined && (
+            <div className={styles.validation}>
+              <span className={isSuccess ? styles.valid : styles.invalid}>
+                {isSuccess
+                  ? "Project added."
+                  : "One or more values is/are invalid."}
+              </span>
+            </div>
+          )}
           <div className={styles.formGroup}>
             <label className={styles.label} htmlFor="title">
               Project Title
@@ -62,6 +95,7 @@ const AddProject: NextPage = () => {
               onChange={(evt: FormEvent<HTMLInputElement>) =>
                 setTitle(evt.currentTarget.value)
               }
+              placeholder="Title"
               required
             />
           </div>
@@ -78,6 +112,7 @@ const AddProject: NextPage = () => {
               onChange={(evt: FormEvent<HTMLInputElement>) =>
                 setDesc(evt.currentTarget.value)
               }
+              placeholder="Description"
               required
             />
           </div>
@@ -85,18 +120,36 @@ const AddProject: NextPage = () => {
             <ToolsTag tools={tools} setTools={setTools} />
           </div>
           <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="link">
-              Project Link
+            <label className={styles.label} htmlFor="githubLink">
+              Github Link
             </label>
             <input
               type="text"
-              name="link"
-              id="link"
+              name="githubLink"
+              id="githubLink"
               className={styles.input}
-              value={link}
+              value={githubLink}
               onChange={(evt: FormEvent<HTMLInputElement>) =>
-                setLink(evt.currentTarget.value)
+                setGithubLink(evt.currentTarget.value)
               }
+              placeholder="https://github.com"
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label className={styles.label} htmlFor="siteLink">
+              Website Link
+            </label>
+            <input
+              type="text"
+              name="siteLink"
+              id="siteLink"
+              className={styles.input}
+              value={siteLink}
+              onChange={(evt: FormEvent<HTMLInputElement>) =>
+                setSiteLink(evt.currentTarget.value)
+              }
+              placeholder="www.website.com"
               required
             />
           </div>
@@ -113,8 +166,22 @@ const AddProject: NextPage = () => {
               onChange={(evt: FormEvent<HTMLInputElement>) =>
                 setImage(evt.currentTarget.value)
               }
+              placeholder="https://imgur.com"
               required
             />
+          </div>
+          <div className={styles.formGroup}>
+            <label className={styles.label} htmlFor="isHighlighted">
+              Highlighted?
+              <input
+                type="checkbox"
+                name="isHighlighted"
+                id="isHighlighted"
+                className={styles.checkbox}
+                checked={isHighlighted}
+                onChange={() => setIsHighlighted(!isHighlighted)}
+              />
+            </label>
           </div>
           <div className={styles.formGroup}>
             <input

@@ -57,7 +57,6 @@ const ToolsTag: React.FC<PropsWithChildren<props>> = ({ tools, setTools }) => {
           }
           onKeyDown={(evt: KeyboardEvent<HTMLInputElement>) => addTags(evt)}
           placeholder="Press enter to add tags"
-          required
         />
         <datalist id="project-tools">
           {Array.from(tagMap.keys()).map((tagName, ind) => (

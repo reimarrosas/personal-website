@@ -11,6 +11,19 @@
   margin-block: 0 0.8em;
 }
 
+.validation {
+  font-size: 1.2rem;
+  margin-block: 1rem;
+}
+
+.valid {
+  color: #81fc81;
+}
+
+.invalid {
+  color: var(--clr-accent);
+}
+
 .form {
   width: 100%;
   padding: 1.5rem;
@@ -34,6 +47,10 @@
 
 .input {
   color: var(--clr-bg);
+}
+
+.checkbox {
+  margin-left: 1em;
 }
 
 .submit {
