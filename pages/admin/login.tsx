@@ -30,8 +30,6 @@ const Login: NextPage = () => {
   const handleSubmit = async (evt: SyntheticEvent) => {
     evt.preventDefault();
 
-    console.log({ username, password });
-
     const res = await fetch("/api/login", {
       body: JSON.stringify({
         username,
