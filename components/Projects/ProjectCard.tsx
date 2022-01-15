@@ -2,9 +2,9 @@ import { BiCodeBlock, BiPlayCircle } from "react-icons/bi";
 
 import styles from "../../styles/Project/ProjectCard.module.css";
 import { tagMap } from "../../utils/tags";
-import { Project } from "./Highlighted";
+import { ProjectCardProps } from "./types";
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, renderProp }) => {
   return (
     <article className={styles.article}>
       <h1 className={styles.title}>{project.project_title}</h1>
@@ -40,6 +40,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           <BiPlayCircle />
         </a>
       </div>
+      {renderProp && renderProp()}
     </article>
   );
 };

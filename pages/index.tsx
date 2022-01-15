@@ -3,13 +3,11 @@ import type { GetStaticProps, NextPage } from "next";
 import Contact from "../components/Contact/Contact";
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
-import Highlighted, {
-  HighlightedProps,
-  Project,
-} from "../components/Projects/Highlighted";
+import Highlighted from "../components/Projects/Highlighted";
+import { Project, ProjectProps } from "../components/Projects/types";
 import { supabase } from "../utils/supabase";
 
-const Home: NextPage<HighlightedProps> = ({ projectList }) => {
+const Home: NextPage<ProjectProps> = ({ projectList }) => {
   return (
     <>
       <div id="home"></div>
