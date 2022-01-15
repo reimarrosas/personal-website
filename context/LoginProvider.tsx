@@ -1,9 +1,5 @@
 import { createContext, useState } from "react";
-
-type StateContext<T> = {
-  state: T;
-  setState: (t: T) => void;
-};
+import { StateContext } from "./types";
 
 export const LoginContext = createContext<StateContext<boolean>>({
   state: false,

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   FormEvent,
@@ -7,6 +8,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { BiFirstPage } from "react-icons/bi";
 
 import ToolsTag from "../../components/Admin/ToolsTag";
 import Header from "../../components/Header/Header";
@@ -30,6 +32,16 @@ const AddProject: NextPage = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/admin/login");
+    }
+    if (router.query.id) {
+      const project = router.query;
+      setTitle((project.project_title as string) ?? "");
+      setDesc((project.project_desc as string) ?? "");
+      setTools((project.project_tools as string[]) ?? []);
+      setGithubLink((project.github_link as string) ?? "");
+      setSiteLink((project.site_link as string) ?? "");
+      setImage((project.project_image as string) ?? "");
+      setIsHighlighted(project.is_highlighted === "true");
     }
   }, []);
 
@@ -66,19 +78,31 @@ const AddProject: NextPage = () => {
   return (
     <>
       <Header />
+      <div className={styles.back}>
+        {router.query.id && (
+          <Link href="/projects">
+            <a className={styles.anchor}>
+              <BiFirstPage />
+              <span>Back to Projects</span>
+            </a>
+          </Link>
+        )}
+      </div>
       <main className={styles.main}>
         <form
           className={styles.form}
           onKeyDown={handleKeyDown}
           onSubmit={handleSubmit}
         >
-          <h1 className={styles.title}>Add Project</h1>
+          <h1 className={styles.title}>
+            {router.query.id ? "Edit" : "Add"} Project
+          </h1>
           {isSuccess !== undefined && (
             <div className={styles.validation}>
               <span className={isSuccess ? styles.valid : styles.invalid}>
                 {isSuccess
                   ? "Project added."
-                  : "One or more values is/are invalid."}
+                  : "One or more values are invalid."}
               </span>
             </div>
           )}
@@ -186,7 +210,7 @@ const AddProject: NextPage = () => {
           <div className={styles.formGroup}>
             <input
               type="submit"
-              value="Add Project"
+              value={`${router.query.id ? "Edit" : "Add"} Project`}
               className={styles.submit}
             />
           </div>

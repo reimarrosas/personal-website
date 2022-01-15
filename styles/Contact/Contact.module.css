@@ -2,7 +2,6 @@
   position: relative;
   max-width: var(--sz-sm);
   margin-inline: auto;
-  margin-block: 0 4rem;
   padding: 2rem 2.5rem;
 
   border-radius: 0 0 1rem 1rem;

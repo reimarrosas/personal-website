@@ -1,6 +1,5 @@
 .main {
   display: flex;
-  padding-block: 3rem;
   align-items: center;
   flex-direction: column;
   max-width: var(--sz-sm);
@@ -72,4 +71,45 @@
 .submit:hover {
   background-color: var(--clr-accent);
   color: var(--clr-bg);
+}
+
+.anchor {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1em;
+  width: fit-content;
+}
+
+.anchor::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--clr-accent);
+}
+
+.anchor:hover::after {
+  display: block;
+  animation: link-hover 150ms ease-in-out 1 forwards;
+}
+
+@keyframes link-hover {
+  from {
+    transform: translateY(1.15em);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(1em);
+  }
+}
+
+.back {
+  padding-block: 3rem 1.5rem;
+  font-size: 1.2rem;
+  max-width: var(--sz-md);
+  margin-inline: auto;
 }

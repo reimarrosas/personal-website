@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import { BiFirstPage } from "react-icons/bi";
 
 import Header from "../components/Header/Header";
@@ -35,7 +35,12 @@ const Projects: NextPage<ProjectProps> = ({ projectList }) => {
                   isLoggedIn
                     ? () => (
                         <div className={styles.edit}>
-                          <Link href="/admin/add-projects">
+                          <Link
+                            href={{
+                              pathname: "/admin/add-projects",
+                              query: project,
+                            }}
+                          >
                             <a className={styles.editLink}>[Edit]</a>
                           </Link>
                         </div>
