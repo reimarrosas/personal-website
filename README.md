@@ -6,19 +6,18 @@ This is my (Reimar Rosas) Personal Website that will showcase my projects and ho
 
 ## Index
 
-- [Personal Website](#personal-website)
-  - [Introduction](#introduction)
-  - [Index](#index)
-  - [About](#about)
-  - [Technologies](#technologies)
-  - [Usage](#usage)
-    - [Requirements](#requirements)
-    - [Installation](#installation)
-      - [Note](#note)
-    - [Commands](#commands)
-  - [Resources](#resources)
-  - [Gallery](#gallery)
-  - [License](#license)
+- [Introduction](#introduction)
+- [Index](#index)
+- [About](#about)
+- [Technologies](#technologies)
+- [Usage](#usage)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Note](#note)
+  - [Commands](#commands)
+- [Resources](#resources)
+- [Gallery](#gallery)
+- [License](#license)
 
 ## About
 
