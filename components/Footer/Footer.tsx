@@ -11,6 +11,7 @@ const Footer: React.FC = () => {
         className={styles.link}
         href="https://github.com/reimarrosas"
         target="_blank"
+        rel="noreferrer"
       >
         Github
       </a>

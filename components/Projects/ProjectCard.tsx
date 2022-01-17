@@ -26,6 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, renderProp }) => {
         <a
           href={project.github_link}
           target="_blank"
+          rel="noreferrer"
           title="Github Link"
           className={styles.githubLink}
         >
@@ -34,6 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, renderProp }) => {
         <a
           href={project.site_link}
           target="_blank"
+          rel="noreferrer"
           title="Website Link"
           className={styles.siteLink}
         >

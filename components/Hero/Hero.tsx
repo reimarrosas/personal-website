@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
     <>
       <HeroContainer>
         <section className={styles.hero}>
-          <h1 className={styles.title}>👋 Hi I'm Reimar!</h1>
+          <h1 className={styles.title}>👋 Hi I&apos;m Reimar!</h1>
           <p className={styles.content}>
             Currently a Computer Science Technology Student in Vanier College
             living in Montreal, Quebec. Proficient in Frontend Technologies like
