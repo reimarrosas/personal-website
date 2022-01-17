@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { useContext } from "react";
-import { BiFirstPage } from "react-icons/bi";
 
 import Header from "../components/Header/Header";
 import ProjectCard from "../components/Projects/ProjectCard";
@@ -15,16 +14,8 @@ const Projects: NextPage<ProjectProps> = ({ projectList }) => {
 
   return (
     <>
-      <Header renderNav />
+      <Header />
       <main className={styles.main}>
-        <div className={styles.back}>
-          <Link href="/">
-            <a className={styles.anchor}>
-              <BiFirstPage />
-              <span>Back to Home</span>
-            </a>
-          </Link>
-        </div>
         <h1 className={styles.title}>All Projects</h1>
         <ul className={styles.projectList}>
           {projectList?.map((project, ind) => (

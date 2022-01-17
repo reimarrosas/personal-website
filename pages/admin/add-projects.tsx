@@ -12,6 +12,7 @@ import { BiFirstPage } from "react-icons/bi";
 
 import ToolsTag from "../../components/Admin/ToolsTag";
 import Header from "../../components/Header/Header";
+import Navigate from "../../components/Navigate";
 import { LoginContext } from "../../context/LoginProvider";
 import styles from "../../styles/Admin/AddProjects.module.css";
 import { supabase } from "../../utils/supabase";
@@ -80,12 +81,11 @@ const AddProject: NextPage = () => {
       <Header />
       <div className={styles.back}>
         {router.query.id && (
-          <Link href="/projects">
-            <a className={styles.anchor}>
-              <BiFirstPage />
-              <span>Back to Projects</span>
-            </a>
-          </Link>
+          <Navigate
+            href="/projects"
+            content="Back to Projects"
+            icon={() => <BiFirstPage />}
+          />
         )}
       </div>
       <main className={styles.main}>

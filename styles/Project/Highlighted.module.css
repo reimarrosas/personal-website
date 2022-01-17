@@ -24,36 +24,3 @@
 .viewMore {
   font-size: 1.2rem;
 }
-
-.anchor {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.1em;
-}
-
-.anchor::after {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background-color: var(--clr-accent);
-}
-
-.anchor:hover::after {
-  display: block;
-  animation: link-hover 150ms ease-in-out 1 forwards;
-}
-
-@keyframes link-hover {
-  from {
-    transform: translateY(1.15em);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(1em);
-  }
-}

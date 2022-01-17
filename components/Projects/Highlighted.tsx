@@ -4,6 +4,7 @@ import { BiLastPage } from "react-icons/bi";
 import ProjectCard from "./ProjectCard";
 import styles from "../../styles/Project/Highlighted.module.css";
 import { ProjectProps } from "./types";
+import Navigate from "../Navigate";
 
 const Highlighted: React.FC<ProjectProps> = ({ projectList }) => {
   return (
@@ -15,14 +16,13 @@ const Highlighted: React.FC<ProjectProps> = ({ projectList }) => {
             <ProjectCard project={project} />
           </li>
         ))}
-        <div className={styles.viewMore}>
-          <Link href="/projects">
-            <a className={styles.anchor}>
-              <span>View All</span>
-              <BiLastPage />
-            </a>
-          </Link>
-        </div>
+        <Navigate
+          href="/projects"
+          content="View All"
+          outerClass={styles.viewMore}
+          icon={() => <BiLastPage />}
+          forward
+        />
       </ul>
     </section>
   );
