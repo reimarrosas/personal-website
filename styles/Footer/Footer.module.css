@@ -1,0 +1,25 @@
+.footer {
+  position: relative;
+  margin-top: 4rem;
+  font-size: 1.1rem;
+  border-top: 2px;
+  box-shadow: 0px 0px 3px rgb(247, 250, 252, 0.2);
+  padding-block: 1.2em 0.8em;
+
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.footer::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  transform: translateY(2em);
+  height: 0.3em;
+  background-color: var(--clr-bg);
+}
+
+.link::before {
+  content: "@";
+}

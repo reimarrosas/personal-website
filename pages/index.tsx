@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 
 import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Highlighted from "../components/Projects/Highlighted";
@@ -15,6 +16,7 @@ const Home: NextPage<ProjectProps> = ({ projectList }) => {
       <Hero />
       <Highlighted projectList={projectList} />
       <Contact />
+      <Footer />
     </>
   );
 };

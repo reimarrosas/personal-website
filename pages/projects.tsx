@@ -8,6 +8,7 @@ import { Project, ProjectProps } from "../components/Projects/types";
 import { LoginContext } from "../context/LoginProvider";
 import { supabase } from "../utils/supabase";
 import styles from "../styles/Project/Projects.module.css";
+import Footer from "../components/Footer/Footer";
 
 const Projects: NextPage<ProjectProps> = ({ projectList }) => {
   const { state: isLoggedIn } = useContext(LoginContext);
@@ -43,6 +44,7 @@ const Projects: NextPage<ProjectProps> = ({ projectList }) => {
           ))}
         </ul>
       </main>
+      <Footer />
     </>
   );
 };

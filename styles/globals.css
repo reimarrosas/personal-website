@@ -53,3 +53,7 @@ h5,
 h6 {
   letter-spacing: 0.05em;
 }
+
+main {
+  min-width: 100vh;
+}

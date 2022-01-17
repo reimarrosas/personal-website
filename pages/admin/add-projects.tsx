@@ -11,6 +11,7 @@ import {
 import { BiFirstPage } from "react-icons/bi";
 
 import ToolsTag from "../../components/Admin/ToolsTag";
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Navigate from "../../components/Navigate";
 import { LoginContext } from "../../context/LoginProvider";
@@ -216,6 +217,7 @@ const AddProject: NextPage = () => {
           </div>
         </form>
       </main>
+      <Footer />
     </>
   );
 };
