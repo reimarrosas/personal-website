@@ -1,34 +1,108 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Website
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This is my (Reimar Rosas) Personal Website that will showcase my projects and host different ways to contact me.
 
-```bash
-npm run dev
-# or
+## Index
+
+- [Personal Website](#personal-website)
+  - [Introduction](#introduction)
+  - [Index](#index)
+  - [About](#about)
+  - [Technologies](#technologies)
+  - [Usage](#usage)
+    - [Requirements](#requirements)
+    - [Installation](#installation)
+      - [Note](#note)
+    - [Commands](#commands)
+  - [Resources](#resources)
+  - [Gallery](#gallery)
+  - [License](#license)
+
+## About
+
+This website, as mentioned before is my personal website. It will be mainly used for project showcase and contact information hosting when I apply for jobs in the future. However, it's also a way to practice creating simple websites.
+
+## Technologies
+
+* [NextJS](https://nextjs.org)
+* [Supabase](https://supabase.com)
+
+## Usage
+
+### Requirements
+
+* NodeJS >= 16.13.1
+* Yarn >= 1.22.17
+
+### Installation
+
+1. Clone the website.
+
+```
+git clone https://github.com/reimarrosas/personal-website
+```
+
+2. Navigate to the folder.
+
+```
+cd ./personal-website
+```
+
+3. Install the dependencies. 
+
+```
+yarn install
+```
+
+4. Run the development environment.
+
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Note
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+These steps will run the baseline project but it actually needs a `.env.local` file to run properly which needs a supabase url and anon key.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+ADMIN_ID={preferred admin id}
+ADMIN_PW={preferred admin password}
+NEXT_PUBLIC_SUPABASE_URL={your project's supabase url}
+NEXT_PUBLIC_SUPABASE_ANON_KEY={your project's anon public key}
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Commands
 
-## Learn More
+* `yarn dev` - launches the application in development mode
+* `yarn build` - creates an optimized production build for the project
+* `yarn start` - launches the application in production mode. The application should be compiled with `yarn build` first.
+* `yarn lint` - runs ESLint for all files in `pages`, `components` and `lib` directories.
 
-To learn more about Next.js, take a look at the following resources:
+## Resources
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [NextJS Documentation](https://nextjs.org/docs)
+* [Supabase Documentation](https://supabase.com/docs)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Gallery
 
-## Deploy on Vercel
+* Index Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Index Page of Personal Website](https://i.imgur.com/D7cuGap.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Projects Page
+
+![Projects Page of Personal Website](https://i.imgur.com/zUBp2C9.png)
+
+* Admin Login Page
+
+![Projects Page of Personal Website](https://i.imgur.com/DLjSqct.png)
+
+* Admin Add/Edit Project Page
+
+![Projects Page of Personal Website](https://i.imgur.com/HdkgE8H.png)
+
+## License
+
+Copyright (c) Reimar Rosas. Licensed under the [MIT](LICENSE) license
