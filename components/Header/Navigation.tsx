@@ -7,7 +7,7 @@ const Navigation: React.FC = () => {
         <a className={styles.navlink} href="https://blog.reimarrosas.me">
           <li>Blog</li>
         </a>
-        <a className={styles.navlink} href="#projects">
+        <a className={styles.navlink} href="/projects">
           <li>Projects</li>
         </a>
         <a className={styles.navlink} href="#contact">
