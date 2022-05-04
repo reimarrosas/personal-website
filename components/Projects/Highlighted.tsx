@@ -16,14 +16,14 @@ const Highlighted: React.FC<ProjectProps> = ({ projectList }) => {
             <ProjectCard project={project} />
           </li>
         ))}
-        <Navigate
-          href="/projects"
-          content="View All"
-          outerClass={styles.viewMore}
-          icon={() => <BiLastPage />}
-          forward
-        />
       </ul>
+      <Navigate
+        href="/projects"
+        content="View All"
+        outerClass={styles.viewMore}
+        icon={() => <BiLastPage />}
+        forward
+      />
     </section>
   );
 };

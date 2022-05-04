@@ -22,5 +22,8 @@
 }
 
 .viewMore {
+  padding-block-start: 1em;
   font-size: 1.2rem;
+  display: grid;
+  place-content: center;
 }

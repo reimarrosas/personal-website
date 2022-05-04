@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
             Currently a Computer Science Technology Student in Vanier College
             living in Montreal, Quebec. Proficient in Frontend Technologies like
             HTML, CSS, JavaScript + Frameworks, with working knowledge of
-            Backend Technologies like NodeJS, ASP.NET, Django, and Spring.
-            Technology is my lifeblood.
+            Backend Technologies like NodeJS, ASP.NET and PHP. Technology is my
+            lifeblood.
           </p>
         </section>
       </HeroContainer>
